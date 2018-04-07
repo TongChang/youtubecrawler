@@ -4,7 +4,9 @@
   "description": "## 何するものなの？",
   "main": "index.js",
   "dependencies": {
-    "googleapis": "^28.1.0"
+    "googleapis": "^28.1.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.6"
   },
   "devDependencies": {},
   "scripts": {
