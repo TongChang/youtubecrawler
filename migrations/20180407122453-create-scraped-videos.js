@@ -18,16 +18,16 @@ module.exports = {
         type: Sequelize.STRING
       },
       viewCount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       likeCount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       dislikeCount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       publishedAt: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,
