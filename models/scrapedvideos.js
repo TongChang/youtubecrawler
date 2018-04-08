@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     eTag: DataTypes.STRING,
     videoId: DataTypes.STRING,
     title: DataTypes.STRING,
-    viewCount: DataTypes.INTEGER,
-    likeCount: DataTypes.INTEGER,
-    dislikeCount: DataTypes.INTEGER,
-    publishedAt: DataTypes.INTEGER
+    viewCount: DataTypes.BIGINT,
+    likeCount: DataTypes.BIGINT,
+    dislikeCount: DataTypes.BIGINT,
+    publishedAt: DataTypes.BIGINT
   }, {});
   ScrapedVideos.associate = function(models) {
     // associations can be defined here

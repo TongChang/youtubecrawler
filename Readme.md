@@ -50,3 +50,12 @@ $ node ./lib/batch/crawler.js
 $ sequelize db:mygration
 ```
 
+## 注意事項
+
+### Youtubeはタイトルに絵文字もあるので注意が必要です
+
+下記を参考にmy.cnfをいじったら登録できるようになりました。
+
+* [MySQL5.5で🍣絵文字🐟を挿入/検索する - Qiita](https://qiita.com/suzuki_sh/items/f02fc88a8514fd23a47e)
+* [データベースのutf8mb4対応 - Qiita](https://qiita.com/Iwark/items/9499fcc4e3a3e50afe08)
+
