@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style type="text/css">
+      .w-8em {
+        width: 8em;
+      }
+      td.right_align {
+        text-align: right;
+      }
+
+      table.videolist {
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      table.videolist thead {
+        background-color: lightgreen;
+      }
+
+      table.videolist,
+      table.videolist th ,
+      table.videolist td {
+        border: solid 0.1px #bbb;
+      }
+      table.videolist th,
+      table.videolist td {
+        padding: 0.5em;
+      }
+
+      table.videolist tbody tr:hover {
+        background-color: #fcf75e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div>
+      <table class="videolist">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>title</th>
+            <th>viewCount</th>
+            <th>likeCount</th>
+            <th>dislikeCount</th>
+            <th>publishedAt</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% let count = 0; %>
+<% videos.forEach( video => { %>
+          <tr>
+            <td><%= ++count %></td>
+            <td><a href="https://youtu.be/<%= video.videoId %>"><%= video.title %></a></td>
+            <td class="w-8em right_align"><%= !video.viewCount ? 0 : String(video.viewCount).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %></td>
+            <td class="w-8em right_align"><%= !video.likeCount ? 0 : String(video.likeCount).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %></td>
+            <td class="w-8em right_align"><%= !video.dislikeCount ? 0 : String(video.dislikeCount).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %></td>
+            <td><%= video.publishedAt %></td>
+          </tr>
+<% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
