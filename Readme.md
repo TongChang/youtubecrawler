@@ -25,9 +25,28 @@
 
 ## 使い方
 
-バッチのCLI実行方法
+### インストール
+
+```
+$ npm install
+$ npm install --global sequelize-cli
+```
+
+### viewの起動
+
+```
+$ DEBUG=youtubecrawler:* npm start
+```
+
+### バッチのCLI実行方法
 
 ```
 $ node ./lib/batch/crawler.js
+```
+
+### mygrationの実行方法
+
+```
+$ sequelize db:mygration
 ```
 
