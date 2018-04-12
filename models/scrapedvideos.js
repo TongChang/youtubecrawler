@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     viewCount: DataTypes.BIGINT,
     likeCount: DataTypes.BIGINT,
     dislikeCount: DataTypes.BIGINT,
-    publishedAt: DataTypes.BIGINT
+    publishedAt: DataTypes.BIGINT,
+    searchQueriesId: DataTypes.INTEGER
   }, {});
   ScrapedVideos.associate = function(models) {
     // associations can be defined here
@@ -21,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       await Promise.all(videoIds.map(videoId => {
           return ScrapedVideos.findOrCreate({
             where: {
-              videoId: videoId
+              videoId: videoId,
+              searchQueriesId: searchQueriesId
             }
           });
       }));
