@@ -49,6 +49,7 @@
             <th>likeCount</th>
             <th>dislikeCount</th>
             <th>publishedAt</th>
+            <th>query</th>
           </tr>
         </thead>
         <tbody>
@@ -61,10 +62,19 @@
             <td class="w-8em right_align"><%= !video.likeCount ? 0 : String(video.likeCount).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %></td>
             <td class="w-8em right_align"><%= !video.dislikeCount ? 0 : String(video.dislikeCount).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,' ) %></td>
             <td><%= video.publishedAt %></td>
+            <td><%= video.SearchQuery.query %></td>
           </tr>
 <% }); %>
         </tbody>
       </table>
+      <ul>
+        <li>検索のカウントは <%= count %>
+        <li>今は <%= numOfPage %> ページ目
+        <li>前のページは  <%= (numOfPage == 1) ? "ない" : "ある" %>
+        <li>次のページは  <%= (numOfPage * numOfDisplay >= count) ? "ない" : "ある" %>
+        <li><a href="/?num_of_page=<%= numOfPage - 1 %>">前のページ</a>
+        <li><a href="/?num_of_page=<%= numOfPage + 1 %>">次のページ</a>
+      </ul>
     </div>
   </body>
 </html>

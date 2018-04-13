@@ -14,16 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     searchQueriesId: DataTypes.INTEGER
   }, {});
   ScrapedVideos.associate = function(models) {
-    // associations can be defined here
+    ScrapedVideos.belongsTo(
+      models.SearchQueries, {
+        foreignKey: 'searchQueriesId',
+        targetKey: 'id'
+    });
   };
 
-  ScrapedVideos.createIncompletes = async videoIds => {
+  ScrapedVideos.createIncompletes = async (videoIds, searchQuery) => {
     try {
       await Promise.all(videoIds.map(videoId => {
           return ScrapedVideos.findOrCreate({
             where: {
               videoId: videoId,
-              searchQueriesId: searchQueriesId
+              searchQueriesId: searchQuery.id
             }
           });
       }));
